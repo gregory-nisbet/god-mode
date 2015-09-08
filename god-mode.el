@@ -87,6 +87,8 @@ All predicates must return nil for god-local-mode to start."
 (defvar god-mode-universal-argument-map
   (let ((map (copy-keymap universal-argument-map)))
     (define-key map (kbd "u") 'universal-argument-more)
+    ;; map C-- to negative argument
+    (define-ley map (kbd "-") 'negative-argument)
     map)
   "Keymap used while processing \\[universal-argument] with god-mode on.")
 
